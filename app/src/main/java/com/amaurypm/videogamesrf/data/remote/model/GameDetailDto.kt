@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 //Información del API con los detalles
 data class GameDetailDto(
+    @SerializedName("latitud")
+    var latitud: Double? = null,
+    @SerializedName("longitud")
+    var longitud: Double? = null,
     @SerializedName("video")
     var video: String? = null,
     @SerializedName("image")

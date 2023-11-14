@@ -119,6 +119,7 @@ class Login : AppCompatActivity() {
             if(!validaCampos()) return@setOnClickListener
 
             //binding.progressBar.visibility = View.VISIBLE
+            //binding.progressBar.visibility = View.VISIBLE
 
             //autenticando al usuario
             autenticaUsuario(email, contrasenia)

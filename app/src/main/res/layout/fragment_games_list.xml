@@ -22,4 +22,19 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCS"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:text="Cerrar Sesión"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
 </FrameLayout>

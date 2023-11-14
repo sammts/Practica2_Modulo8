@@ -139,20 +139,6 @@
                 android:indeterminateDuration="1500"
                 />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnReload"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="600dp"
-                android:layout_marginEnd="32dp"
-                android:backgroundTint="@android:color/holo_orange_dark"
-                android:text="Recargar"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:cornerRadius="16dp" />
 
         </RelativeLayout>
 

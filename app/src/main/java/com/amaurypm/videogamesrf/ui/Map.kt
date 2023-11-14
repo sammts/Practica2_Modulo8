@@ -20,13 +20,28 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
     //Para google maps
     private lateinit var map: GoogleMap
 
+    var latitude = 0.0
+    var longitud = 0.0
+    var nom = ""
+    var par = ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        latitude = intent.getDoubleExtra("Latitud", 0.0)
+
+        longitud = intent.getDoubleExtra("Longitud", 0.0)
+
+        nom = intent.getStringExtra("Nombre").toString()
+
+        par = intent.getStringExtra("Parent").toString()
+
         val mapFragment: SupportMapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -35,12 +50,11 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun createMarker(){
-        //val latitude =
-        val coordinates = LatLng(19.322326,-99.184592)
+        val coordinates = LatLng(latitude,longitud)
         val marker = MarkerOptions()
             .position(coordinates)
-            .title("Sandra Lopez")
-            .snippet("Hermana")
+            .title(nom)
+            .snippet(par)
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.people))
 
         map.addMarker(marker)

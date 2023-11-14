@@ -75,9 +75,14 @@ class GameDetailFragment : Fragment(){
                             response: Response<GameDetailDto>
                         ) {
 
-                            /*binding.btnOpenU.setOnClickListener {
-                                startActivity(Intent(this@GameDetailFragment, Map::class.java))
-                            }*/
+                            binding.btnOpenU.setOnClickListener {
+                                val intent = Intent(requireContext(), Map::class.java)
+                                intent.putExtra("Latitud", response.body()?.latitud)
+                                intent.putExtra("Longitud", response.body()?.longitud)
+                                intent.putExtra("Nombre",response.body()?.name)
+                                intent.putExtra("Parent", response.body()?.parent)
+                                startActivity(intent)
+                            }
 
                             binding.apply {
                                 pbLoading.visibility = View.GONE
@@ -147,26 +152,4 @@ class GameDetailFragment : Fragment(){
             }
     }
 
-    /*override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
-        createMarker()
-    }
-
-    private fun createMarker(){
-        val coordinates = LatLng(19.322326,-99.184592)
-        val marker = MarkerOptions()
-            .position(coordinates)
-            .title("Sandra Lopez")
-            .snippet("Hermana")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.people))
-
-        map.addMarker(marker)
-
-        map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coordinates, 18f),
-            4000,
-            null
-        )
-
-    }*/
 }

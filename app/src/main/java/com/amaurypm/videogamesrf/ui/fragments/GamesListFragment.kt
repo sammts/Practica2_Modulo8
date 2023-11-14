@@ -1,5 +1,6 @@
 package com.amaurypm.videogamesrf.ui.fragments
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +16,10 @@ import com.amaurypm.videogamesrf.application.VideoGamesRFApp
 import com.amaurypm.videogamesrf.data.GameRepository
 import com.amaurypm.videogamesrf.data.remote.model.GameDto
 import com.amaurypm.videogamesrf.databinding.FragmentGamesListBinding
+import com.amaurypm.videogamesrf.ui.Login
 import com.amaurypm.videogamesrf.ui.adapters.GamesAdapter
 import com.amaurypm.videogamesrf.util.Constants
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +33,8 @@ class GamesListFragment : Fragment() {
     private lateinit var repository: GameRepository
 
     private lateinit var mp: MediaPlayer
+
+    private var firebaseAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +84,11 @@ class GamesListFragment : Fragment() {
                             }
                         }
                     }
-
+                    binding.btnCS.setOnClickListener {
+                        firebaseAuth?.signOut()
+                        startActivity(Intent(requireContext(), Login::class.java))
+                        mp.pause()
+                    }
                 }
 
                 override fun onFailure(call: Call<List<GameDto>>, t: Throwable) {

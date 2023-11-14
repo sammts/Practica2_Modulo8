@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity(){
 
         //val mapFragment: SupportMapFragment = supportFragmentManager.findFragmentById(R.id.map2) as SupportMapFragment
         //mapFragment.getMapAsync(this)
-        Thread.sleep(5000)
+        //Thread.sleep(5000)
 
         setTheme(R.style.Theme_VideoGamesRF)
 
